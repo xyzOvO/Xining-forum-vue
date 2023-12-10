@@ -1,8 +1,8 @@
 {
-  "name": "sg-vue-blog",
+  "name": "Xining-Forum-vue",
   "version": "1.0.0",
-  "description": "三更博客",
-  "author": "三更",
+  "description": "西宁野生动物园论坛",
+  "author": "猫三棂",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",

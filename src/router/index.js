@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 Vue.use(Router)
-
+// 路由规则
 export default new Router({
 	scrollBehavior(to, from, savePosition) { // 在点击浏览器的“前进/后退”，或者切换导航的时候触发。
 		if (savePosition) {
@@ -19,7 +19,8 @@ export default new Router({
 			}
 		}
 	},
-	routes: [{
+	routes: [
+		{
 			path: '/',
 			component: resolve => require(['../pages/Home.vue'], resolve),
 			meta: {
@@ -62,7 +63,7 @@ export default new Router({
 		{
 			path: '/FriendsLink',
 			component: resolve => require(['../pages/FriendsLink.vue'], resolve),
-			meta: {
+			meta: { 
 				auth: true
 			},
 			name: 'FriendsLink'

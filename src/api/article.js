@@ -6,6 +6,7 @@ export function articleList(query) {
         url: '/article/articleList',
         method: 'get',
         headers: {
+          // 不要Token
           isToken: false
         },
         params: query
