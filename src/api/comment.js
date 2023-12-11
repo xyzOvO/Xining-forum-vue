@@ -5,6 +5,7 @@ export function sendComment(type,articleId,rootId,toCommentId,toCommentUserId,co
     return request({
         url: '/comment',
         method: 'post',
+        // 文章id，文章类型，根评论id，回复目标评论id，回复的目标评论用户id，评论内容
         data: {"articleId":articleId,"type":type,"rootId":rootId,"toCommentId":toCommentId,"toCommentUserId":toCommentUserId,"content":content}
     })
 }
