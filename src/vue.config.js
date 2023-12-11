@@ -5,7 +5,7 @@ function resolve(dir) {
     return path.join(__dirname, dir)
 }
 
-const name = process.env.VUE_APP_TITLE || 'Xyz66博客' // 网页标题
+const name = process.env.VUE_APP_TITLE || '西宁野生动物园论坛前台' // 网页标题
 
 const port = process.env.port || process.env.npm_config_port || 85 // 端口
 
