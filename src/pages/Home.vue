@@ -35,7 +35,8 @@ import rightlist from '../components/rightlist.vue'
             'sg-rightlist':rightlist,
         },
         created() { //生命周期函数
-
+            var deviceType = navigator.userAgent;
+            console.log("Test:"+deviceType);
         }
     }
 </script>

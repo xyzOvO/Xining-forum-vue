@@ -2,17 +2,9 @@
 <template>
   <el-row class="sharelistBox">
     <!-- 在这里遍历获取到的文章列表 -->
-    <el-col
-      :span="24"
-      class="s-item tcommonBox"
-      v-for="(item, index) in articleList"
-      :key="'article' + index"
-    >
+    <el-col :span="24" class="s-item tcommonBox" v-for="(item, index) in articleList" :key="'article' + index">
       <span class="s-round-date">
-        <span
-          class="month"
-          v-html="showInitDate(item.createTime, 'month') + '月'"
-        ></span>
+        <span class="month" v-html="showInitDate(item.createTime, 'month') + '月'"></span>
         <span class="day" v-html="showInitDate(item.createTime, 'date')"></span>
       </span>
       <header>
@@ -24,14 +16,13 @@
         </h1>
         <h2>
           <i class="fa fa-fw fa-user"></i>发表于
-          <i class="fa fa-fw fa-clock-o"></i
-          ><span v-html="showInitDate(item.createTime, 'all')">{{
+          <i class="fa fa-fw fa-clock-o"></i><span v-html="showInitDate(item.createTime, 'all')">{{
             showInitDate(item.createTime, "all")
-          }}</span>
+            }}</span>
           • <i class="fa fa-fw fa-eye"></i>{{ item.viewCount }} 次围观 •
         </h2>
         <div class="ui label">
-          <a :href="'#/Share?classId=' + item.class_id">{{
+          <a :href="'#/Share?classId=' + item.categoryId">{{
             item.categoryName
           }}</a>
         </div>
@@ -45,26 +36,14 @@
         </p>
       </div>
       <div class="viewdetail">
-        <a
-          class="tcolors-bg"
-          :href="'#/DetailArticle?aid=' + item.id"
-          target="_blank"
-        >
+        <a class="tcolors-bg" :href="'#/DetailArticle?aid=' + item.id" target="_blank">
           阅读全文>>
         </a>
       </div>
     </el-col>
     <el-col class="viewmore">
-      <a
-        v-show="hasMore"
-        class="tcolors-bg"
-        href="javascript:void(0);"
-        @click="addMoreFun"
-        >点击加载更多</a
-      >
-      <a v-show="!hasMore" class="tcolors-bg" href="javascript:void(0);"
-        >暂无更多数据</a
-      >
+      <a v-show="hasMore" class="tcolors-bg" href="javascript:void(0);" @click="addMoreFun">点击加载更多</a>
+      <a v-show="!hasMore" class="tcolors-bg" href="javascript:void(0);">暂无更多数据</a>
     </el-col>
   </el-row>
 </template>
@@ -123,6 +102,7 @@ export default {
       this.showSearchShowList(false);
     },
     routeChange: function () {
+      // 给拼接分类链接
       var that = this;
       this.queryParams.categoryId =
         that.$route.query.classId == undefined
@@ -157,12 +137,15 @@ export default {
   background: #fff;
   padding: 15px;
 }
+
 .shareclassTwo {
   width: 100%;
 }
+
 .shareclassTwo li {
   display: inline-block;
 }
+
 .shareclassTwo li a {
   display: inline-block;
   padding: 3px 7px;
@@ -174,14 +157,17 @@ export default {
   transition: transform 0.2s linear;
   -webkit-transition: transform 0.2s linear;
 }
+
 .shareclassTwo li a:hover {
   transform: translate(0, -3px);
   -webkit-transform: translate(0, -3px);
 }
+
 .shareclassTwo li a.active {
   background: #fff;
   color: #64609e;
 }
+
 /*文章列表*/
 .sharelistBox {
   transition: all 0.5s ease-out;

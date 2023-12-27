@@ -34,7 +34,7 @@ export default new Router({
 			meta: {
 				auth: true
 			},
-			name: 'Home'
+			name: 'Home2'
 		}, //首页
 		{
 			path: '/Share',
