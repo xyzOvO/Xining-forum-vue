@@ -354,26 +354,27 @@ a {
     }
   }
 }
-@media screen and (max-width: 700px) {
-  .headBox {
-    display: none;
-  }
-  .mobileBox {
-    //手机端导航栏显示
-    display: block;
-  }
-  .headImgBox {
-    height: 450px !important;
-    margin-bottom: -140px !important;
-  }
-  .h-information {
-    display: none;
-  }
-  .headImgBox .scene {
-    font-size: 50px !important;
-    top: 120px;
-  }
-}
+// @media screen and (max-width: 700px) {
+//   // 尺寸700px有导航栏消失BUG
+//   .headBox {
+//     display: none;
+//   }
+//   .mobileBox {
+//     //手机端导航栏显示
+//     display: block;
+//   }
+//   .headImgBox {
+//     height: 450px !important;
+//     margin-bottom: -140px !important;
+//   }
+//   .h-information {
+//     display: none;
+//   }
+//   .headImgBox .scene {
+//     font-size: 50px !important;
+//     top: 120px;
+//   }
+// }
 
 @media screen and (min-width: 701px) {
   .headBox {
@@ -485,13 +486,13 @@ a {
 .brone {
   border-right: medium none !important;
 }
-.clearfix:before,
-.clearfix:after {
+.clearfix::before,
+.clearfix::after {
   display: table;
   content: "";
 }
 
-.clearfix:after {
+.clearfix::after {
   clear: both;
 }
 .smalltitle {
