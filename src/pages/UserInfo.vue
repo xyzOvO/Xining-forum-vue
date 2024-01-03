@@ -160,9 +160,9 @@ import store from '../store'
             },
 
             pdsex(sex) {
-                if (sex === 1) {
+                if (sex == 1) {
                     return '男';
-                } else if (sex === 0) {
+                } else if (sex == 0) {
                     return '女';
                 } else {
                 return '未知';
