@@ -6,21 +6,22 @@
         <el-col :span="24">
           <!-- pc端导航 -->
           <div class="headBox">
-            <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal"
-              @select="handleSelect" :router="true">
+            <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect"
+              :router="true">
               <el-menu-item index="/Home"><i class="fa fa-wa fa-home"></i> 首页</el-menu-item>
               <el-submenu index="/Share">
                 <template slot="title"><i class="fa fa-wa fa-archive"></i> 动物分类</template>
-                <el-menu-item v-for="(item,index) in classListObj" :key="'class1'+index"
-                  :index="'/Share?classId='+item.id">{{item.name}}</el-menu-item>
+                <el-menu-item v-for="(item, index) in classListObj" :key="'class1' + index"
+                  :index="'/Share?classId=' + item.id">{{ item.name }}</el-menu-item>
               </el-submenu>
               <el-menu-item index="/Reward"><i class="fa fa-wa fa-cny"></i> 致谢</el-menu-item>
-              <el-menu-item index="/Friendslink"><i class="fa fa-wa fa-users"></i> 友链</el-menu-item>
+              <el-menu-item index="/Friendslink"><i class="fa fa-wa fa-users"></i> 建站</el-menu-item>
+
 
               <div class="userInfo">
                 <div v-show="!haslogin" class="nologin">
-                  <a href="javascript:void(0);" @click="logoinFun(1)">登录&nbsp;</a>|<a
-                    href="javascript:void(0);" @click="logoinFun(0)">&nbsp;注册</a>
+                  <a href="javascript:void(0);" @click="logoinFun(1)">登录&nbsp;</a>|<a href="javascript:void(0);"
+                    @click="logoinFun(0)">&nbsp;注册</a>
                 </div>
                 <div v-show="haslogin" class="haslogin">
                   <i class="fa fa-fw fa-user-circle userImg"></i>
@@ -41,19 +42,18 @@
     </div>
     <!--背景图  -->
     <div class="headImgBox"
-      :style="{backgroundImage:this.$store.state.themeObj.top_image?'url('+this.$store.state.themeObj.top_image+')':'url(static/img/headbg05.jpg)'}">
+      :style="{ backgroundImage: this.$store.state.themeObj.top_image ? 'url(' + this.$store.state.themeObj.top_image + ')' : 'url(static/img/headbg05.jpg)' }">
       <div class="scene">
         <div><span id="luke"></span></div>
       </div>
       <div class="h-information">
 
-        <img
-          :src="this.$store.state.themeObj.head_portrait?this.$store.state.themeObj.head_portrait:'static/img/tou.png'"
+        <img :src="this.$store.state.themeObj.head_portrait ? this.$store.state.themeObj.head_portrait : 'static/img/tou.png'"
           alt="">
 
         <h2 class="h-description">
 
-          {{this.$store.state.themeObj.autograph?this.$store.state.themeObj.autograph:"关爱野生动物，共建和谐家园！"}}
+          {{ this.$store.state.themeObj.autograph ? this.$store.state.themeObj.autograph : "关爱野生动物，共建和谐家园！" }}
 
         </h2>
       </div>
@@ -197,10 +197,10 @@ export default {
       "hidden" in document
         ? "hidden"
         : "webkitHidden" in document
-        ? "webkitHidden"
-        : "mozHidden" in document
-        ? "mozHidden"
-        : null;
+          ? "webkitHidden"
+          : "mozHidden" in document
+            ? "mozHidden"
+            : null;
     var visibilityChangeEvent = hiddenProperty.replace(
       /hidden/i,
       "visibilitychange"
@@ -229,7 +229,10 @@ export default {
       clearTimeout(timer);
     }, 500);
   },
+  // 搜索
+  
 };
+
 </script>
 
 <style>
@@ -254,7 +257,7 @@ export default {
   background: rgba(73, 69, 107, 0.7);
 }
 
-.el-menu--horizontal > .el-submenu.is-active .el-submenu__title {
+.el-menu--horizontal>.el-submenu.is-active .el-submenu__title {
   border-bottom: none !important;
 }
 
@@ -287,28 +290,28 @@ export default {
   color: #fff;
 }
 
-.headBox .el-menu--horizontal .el-submenu > .el-menu {
+.headBox .el-menu--horizontal .el-submenu>.el-menu {
   top: 38px;
   border: none;
   padding: 0;
 }
 
-.headBox > ul li.el-menu-item:hover,
-.headBox > ul li.el-submenu:hover .el-submenu__title {
+.headBox>ul li.el-menu-item:hover,
+.headBox>ul li.el-submenu:hover .el-submenu__title {
   background: #48456c;
   border-bottom: none;
 }
 
-.headBox > ul .el-submenu .el-menu,
-.headBox > ul .el-submenu .el-menu .el-menu-item {
+.headBox>ul .el-submenu .el-menu,
+.headBox>ul .el-submenu .el-menu .el-menu-item {
   background: #48456c;
 }
 
-.headBox > ul .el-submenu .el-menu .el-menu-item {
+.headBox>ul .el-submenu .el-menu .el-menu-item {
   min-width: 0;
 }
 
-.headBox > ul .el-submenu .el-menu .el-menu-item:hover {
+.headBox>ul .el-submenu .el-menu .el-menu-item:hover {
   background: #64609e;
 }
 
@@ -462,7 +465,7 @@ export default {
   color: #fff;
 }
 
-.hideMenu > i {
+.hideMenu>i {
   position: absolute;
   left: 10px;
   top: 12px;
@@ -501,8 +504,8 @@ export default {
   color: #fff;
 }
 
-.hideMenu > ul li.el-menu-item:hover,
-.hideMenu > ul li.el-menu-item.is-active {
+.hideMenu>ul li.el-menu-item:hover,
+.hideMenu>ul li.el-menu-item.is-active {
   background: #48576a;
 }
 
@@ -539,14 +542,17 @@ export default {
     -webkit-transform: translateY(90px);
     transform: translateY(90px);
   }
+
   80% {
     -webkit-transform: translateY(5px);
     transform: translateY(5px);
   }
+
   90% {
     -webkit-transform: translateY(-5px);
     transform: translateY(-5px);
   }
+
   to {
     -webkit-transform: translateY(0);
     transform: translateY(0);
@@ -558,14 +564,17 @@ export default {
     -webkit-transform: translateY(90px);
     transform: translateY(90px);
   }
+
   80% {
     -webkit-transform: translateY(5px);
     transform: translateY(5px);
   }
+
   90% {
     -webkit-transform: translateY(-5px);
     transform: translateY(-5px);
   }
+
   to {
     -webkit-transform: translateY(0);
     transform: translateY(0);
@@ -592,11 +601,13 @@ export default {
   font-weight: 700;
   /*font-family: 'Sigmar One';*/
 }
+
 .h-information h2 a {
   background: linear-gradient(to right, #df2050, #48456d);
   -webkit-background-clip: text;
   color: transparent;
 }
+
 .headImgBox .scene {
   width: 100%;
   /*height:300px;*/
@@ -630,10 +641,12 @@ export default {
 }
 
 @keyframes caret {
+
   0%,
   100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0;
   }

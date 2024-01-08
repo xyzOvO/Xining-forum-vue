@@ -1,12 +1,12 @@
-<!-- 友情链接模块 -->
+<!-- 相关友链-论坛反馈模块 -->
 <template>
   <div class="tFriendsBox">
     <h1>
-      友链申请格式
+      欢迎您的反馈！
       <h3>网站名称: 西宁野生动物园</h3>
-      <h3>网站地址: https://www.baidu.com</h3>
+      <h3>网站地址: <a href="https://www.baidu.com">https://www.baidu.com</a></h3>
       <h3>网站描述: 百度你懂的</h3>
-      <h3>网站logo: https://www.xyz66.com/1.png</h3>
+      <h3>网站logo: <a href="https://www.baidu.com">https://www.xyz66.com/1.png</a></h3>
     </h1>
     <el-row>
       <el-col

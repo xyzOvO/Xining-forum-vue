@@ -17,7 +17,7 @@
         <p>@西宁野生动物园官号</p>
         <div class="catch-me">
           <div class="">
-            <!-- <el-tooltip class="item" content="Github" placement="top">
+            <el-tooltip class="item" content="Github" placement="top">
               <a :href="catchMeObj.git" target="_blank"><i class="fa fa-fw fa-github"></i></a>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="QQ" placement="top">
@@ -33,7 +33,7 @@
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="CSDN" placement="top">
               <a :href="catchMeObj.csdn" target="_blank"><i class="">C</i></a>
-            </el-tooltip> -->
+            </el-tooltip>
             <el-tooltip class="item" effect="dark" content="圆掌B站" placement="top">
               <a :href="catchMeObj.bilibili1" target="_blank"><i class="fa fa-fw fa-bold"></i></a>
             </el-tooltip>
