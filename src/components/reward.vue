@@ -1,4 +1,4 @@
-<!-- 赞赏模块 -->
+<!-- 赞赏模块-致谢 -->
 <template>
   <div class="tRewardBox tcommonBox">
     <header>
@@ -20,20 +20,18 @@
       <el-row :gutter="30">
         <el-col :span="12" class="donate-item">
           <div class="donate-tip">
-            <img :src="
-                rewardData.wechat_image
-                  ? rewardData.wechat_image
-                  : 'static/img/wx_pay.png'
+            <img :src="rewardData.wechat_image
+                ? rewardData.wechat_image
+                : 'static/img/wx_pay.png'
               " :onerror="$store.state.errorImg" />
             <span>致谢全国关爱动物保护的人！</span>
           </div>
         </el-col>
         <el-col :span="12" class="donate-item">
           <div class="donate-tip">
-            <img :src="
-                rewardData.alipay_image
-                  ? rewardData.alipay_image
-                  : 'static/img/ali_pay.jpg'
+            <img :src="rewardData.alipay_image
+                ? rewardData.alipay_image
+                : 'static/img/ali_pay.jpg'
               " :onerror="$store.state.errorImg" />
             <span style="padding-top: 14px">致谢全国关爱动物保护的人！</span>
           </div>

@@ -122,6 +122,7 @@ video {
   border: 0;
   font: inherit;
 }
+
 body {
   font-family: Arial, "STHeiti", Helvetica, sans-serif;
   background: #efefef;
@@ -138,13 +139,16 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
 fieldset,
 img {
   border: 0;
 }
+
 legend {
   display: none;
 }
+
 // address, caption, cite, code, dfn, em, strong, th, var{
 //   font-style:normal;
 //   font-weight:normal
@@ -153,10 +157,12 @@ ol,
 ul {
   list-style: none;
 }
+
 caption,
 th {
   text-align: left;
 }
+
 h1,
 h2,
 h3,
@@ -166,22 +172,28 @@ h6 {
   font-size: 100%;
   font-weight: normal;
 }
+
 q:before,
 q:after {
   content: "";
 }
+
 abbr,
 acronym {
   border: 0;
 }
+
 a {
   text-decoration: none;
 }
+
 html {
   -webkit-text-size-adjust: none;
   width: 100%;
   height: 100%;
-} /*????iphone??safari????????????*/
+}
+
+/*????iphone??safari????????????*/
 input[type="text"],
 input[type="button"],
 input[type="submit"],
@@ -189,6 +201,7 @@ input[type="search"] {
   -webkit-appearance: none;
   border-radius: 0;
 }
+
 /*************其他内容*************/
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
@@ -204,9 +217,11 @@ h1,
 h2 {
   font-weight: normal;
 }
+
 a {
   color: #444;
 }
+
 .container {
   max-width: 80%;
   margin: 0 auto;
@@ -214,6 +229,7 @@ a {
   // overflow-x: hidden;
   // -webkit-overflow-x: hidden;
 }
+
 //时间和标题
 .s-round-date {
   position: absolute;
@@ -228,14 +244,17 @@ a {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2),
     0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
+
 .s-round-date span {
   text-align: center;
   display: block;
 }
+
 .s-round-date .day {
   font-size: 30px;
   font-weight: 700;
 }
+
 // 相同的标题副标题
 .tcommonBox {
   white-space: normal;
@@ -248,11 +267,13 @@ a {
   margin-bottom: 40px;
   font-size: 15px;
 }
+
 .tcommonBox header {
   white-space: normal;
   word-wrap: break-word;
   word-break: break-all;
 }
+
 .tcommonBox header h1 {
   margin: 10px 0;
   font-size: 25px;
@@ -260,6 +281,7 @@ a {
   text-align: center;
   line-height: 30px;
 }
+
 .tcommonBox header h2 {
   margin: 10px 0;
   line-height: 24px;
@@ -267,33 +289,40 @@ a {
   color: #555;
   font-size: 14px;
 }
+
 .tcommonBox section p {
   line-height: 24px;
   margin: 10px 0;
 }
+
 .tcommonBox header h2 .el-rate,
 .rateBox {
   display: inline-block;
 }
+
 .tcommonBox header h2 .el-rate i {
   font-size: 16px;
 }
+
 .s-item .article-coontent {
   font-size: 15px;
   white-space: normal;
   word-wrap: break-word;
   word-break: break-all;
 }
+
 //标题和按钮
 .s-item .article-content p {
   margin: 10px 0;
   line-height: 24px;
 }
+
 .s-item .viewdetail {
   margin: 10px 0;
   line-height: 24px;
   text-align: center;
 }
+
 .s-item .viewdetail a {
   color: #fff;
   font-size: 12px;
@@ -305,6 +334,7 @@ a {
   text-align: center;
   width: 100%;
 }
+
 .viewmore a {
   /*background:  #97dffd;*/
   /*padding:6px 0;*/
@@ -318,6 +348,7 @@ a {
 }
 
 @media screen and (max-width: 500px) {
+
   //500px 手机尺寸
   .dlikeColBox {
     //点赞收藏手机端换行
@@ -326,27 +357,33 @@ a {
     margin: 10px auto !important;
     text-align: center !important;
   }
+
   .el-message-box {
     //提示弹框手机框展示
     max-width: 80%;
   }
+
   .userInfoBox .el-input,
   .userInfoBox .el-textarea {
     //用户中心表框
     max-width: 280px !important;
   }
+
   .userInfoBox li {
     //li 更改padding  缩小距离
     padding: 15px 10px !important;
   }
+
   .userInfoBox li .el-radio-group .el-radio {
     //标签样式调整
     margin-left: 15px !important;
     margin-bottom: 5px;
   }
+
   .tFriendsBox .tf-item a {
     //好友列表自适应缩小尺寸
     padding: 0 5px 0 60px !important;
+
     img {
       width: 50px !important;
       height: 50px !important;
@@ -354,6 +391,7 @@ a {
     }
   }
 }
+
 // @media screen and (max-width: 700px) {
 //   // 尺寸700px有导航栏消失BUG
 //   .headBox {
@@ -380,44 +418,56 @@ a {
   .headBox {
     display: block;
   }
+
   .mobileBox {
     display: none;
   }
 }
+
 @media screen and (max-width: 800px) {
   .container {
     max-width: 100% !important;
     margin: 0 auto;
   }
+
   .s-round-date {
     width: 0 !important;
   }
+
   .ui.label {
     left: -18px !important;
     padding-left: 18px !important;
   }
+
   .ui.label::after {
     border: none !important;
   }
+
   .headBox li.el-menu-item,
   .headBox .el-submenu__title {
     padding: 0 15px;
   }
+
   .toTop {
     display: none !important;
   }
+
   //隐藏上滑图标
   .hidden {
     display: none !important;
   }
 }
+
 @media screen and (min-width: 801px) {
+
   .headBox li.el-menu-item,
   .headBox .el-submenu__title {
     padding: 0 12px;
   }
 }
+
 @media screen and (max-width: 990px) {
+
   // .hidden{
   //     display: none!important;
   // }
@@ -427,28 +477,36 @@ a {
     width: auto;
   }
 }
+
 @media screen and (min-width: 991px) {
+
   .headBox li.el-menu-item,
   .headBox .el-submenu__title {
     padding: 0 20px;
   }
 }
+
 .tcolors {
   color: @tcolors;
 }
+
 .tcolorm {
   color: @tcolorm;
 }
+
 .tcolord {
   color: @tcolord;
 }
+
 .tcolors-bg {
   background: @tcolors;
   transition: all 0.3s ease-in-out;
 }
+
 .tcolord-bg {
   background: @tcolord;
 }
+
 .tcolors-bg:hover {
   background: @tcolord;
 }
@@ -456,9 +514,11 @@ a {
 .paginationBox li.active {
   background: @tcolorm;
 }
+
 .paginationBox li:hover {
   color: @tcolord;
 }
+
 .el-pagination button:hover {
   color: @tcolord;
 }
@@ -468,24 +528,31 @@ a {
   height: 100%;
   object-fit: cover;
 }
+
 .maxW {
   max-width: 100%;
 }
+
 .fwb {
   font-weight: bold;
 }
+
 .right {
   float: right;
 }
+
 .left {
   float: left;
 }
+
 .btnone {
   border-top: none !important;
 }
+
 .brone {
   border-right: medium none !important;
 }
+
 .clearfix::before,
 .clearfix::after {
   display: table;
@@ -495,6 +562,7 @@ a {
 .clearfix::after {
   clear: both;
 }
+
 .smalltitle {
   /*height:36px;*/
   /*line-height: 36px;*/
@@ -528,6 +596,7 @@ a {
   display: inline-block;
   color: #fff;
 }
+
 .ui.label::after {
   position: absolute;
   content: "";
@@ -542,8 +611,8 @@ a {
   width: 0;
   height: 0;
 }
+
 .ui.label a {
   color: #fff;
   line-height: 100%;
-}
-</style>
+}</style>
