@@ -4,17 +4,10 @@
     <div class="tmsg-respond" ref="respondBox">
       <h3>
         发表评论
-        <small v-show="isRespond" class="tcolorm" @click="removeRespond"
-          >取消回复</small
-        >
+        <small v-show="isRespond" class="tcolorm" @click="removeRespond">取消回复</small>
       </h3>
       <form class="">
-        <el-input
-          type="textarea"
-          :rows="2"
-          placeholder="兔猻：说点什么呢？~"
-          v-model="textarea"
-        >
+        <el-input type="textarea" :rows="2" placeholder="兔猻：说点什么呢？~" v-model="textarea">
         </el-input>
         <div :class="pBody ? 'OwO' : 'OwO OwO-open'">
           <div class="OwO-logo" @click="pBody = !pBody">
@@ -22,12 +15,8 @@
           </div>
           <div class="OwO-body">
             <ul class="OwO-items OwO-items-show">
-              <li
-                class="OwO-item"
-                v-for="(oitem, index) in OwOlist"
-                :key="'oitem' + index"
-                @click="choseEmoji(oitem.title)"
-              >
+              <li class="OwO-item" v-for="(oitem, index) in OwOlist" :key="'oitem' + index"
+                @click="choseEmoji(oitem.title)">
                 <img :src="'static/img/emot/image/' + oitem.url" alt="" />
               </li>
             </ul>
@@ -46,22 +35,13 @@
       </form>
     </div>
     <div class="tmsg-comments" ref="listDom">
-      <a href="#" class="tmsg-comments-tip"
-        >活捉 {{ commentList ? commentList.length : 0 }} 条</a
-      >
+      <a href="#" class="tmsg-comments-tip">活捉 {{ commentList ? commentList.length : 0 }} 条</a>
       <div class="tmsg-commentshow">
         <ul class="tmsg-commentlist">
-          <li
-            class="tmsg-c-item"
-            v-for="(item, index) in commentList"
-            :key="'common' + index"
-          >
+          <li class="tmsg-c-item" v-for="(item, index) in commentList" :key="'common' + index">
             <article class="">
               <header>
-                <img
-                  :src="$store.state.errorImg"
-                  :onerror="$store.state.errorImg"
-                />
+                <img :src="$store.state.errorImg" :onerror="$store.state.errorImg" />
                 <div class="i-name">
                   {{ item.username }}
                 </div>
@@ -76,32 +56,17 @@
                 <p v-html="analyzeEmoji(item.content)">
                   {{ analyzeEmoji(item.content) }}
                 </p>
-                <div
-                  v-if="haslogin"
-                  class="tmsg-replay"
-                  @click="respondMsg(item.id, item.id, item.createBy)"
-                >
+                <div v-if="haslogin" class="tmsg-replay" @click="respondMsg(item.id, item.id, item.createBy)">
                   回复
                 </div>
               </section>
             </article>
-            <ul
-              v-show="item.children"
-              class="tmsg-commentlist"
-              style="padding-left: 60px"
-            >
-              <li
-                class="tmsg-c-item"
-                v-for="(citem, cindex) in item.children"
-                :key="'citem' + cindex"
-              >
+            <ul v-show="item.children" class="tmsg-commentlist" style="padding-left: 60px">
+              <li class="tmsg-c-item" v-for="(citem, cindex) in item.children" :key="'citem' + cindex">
                 <!-- 子评论（树状结构） -->
                 <article class="">
                   <header>
-                    <img
-                      :src="$store.state.errorImg"
-                      :onerror="$store.state.errorImg"
-                    />
+                    <img :src="$store.state.errorImg" :onerror="$store.state.errorImg" />
                     <div class="i-name">
                       {{ citem.username }} <span>回复</span>
                       {{ citem.toCommentUserName }}
@@ -114,11 +79,7 @@
                     <p v-html="analyzeEmoji(citem.content)">
                       {{ citem.content }}
                     </p>
-                    <div
-                      v-show="haslogin"
-                      class="tmsg-replay"
-                      @click="respondMsg(item.id, citem.id, citem.createBy)"
-                    >
+                    <div v-show="haslogin" class="tmsg-replay" @click="respondMsg(item.id, citem.id, citem.createBy)">
                       回复
                     </div>
                   </section>
@@ -351,7 +312,7 @@ export default {
             localStorage.setItem("logUrl", that.$route.fullPath);
             that.$router.push({ path: "/Login?login=1" });
           })
-          .catch(() => {});
+          .catch(() => { });
       }
     },
     removeRespond: function () {
@@ -438,24 +399,29 @@ export default {
   margin-bottom: 20px;
   border-radius: 5px;
 }
+
 .tmsg-respond h3 {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 8px;
 }
+
 .tmsg-respond h3 small {
   font-size: smaller;
   cursor: pointer;
 }
+
 .tmsg-respond textarea {
   background: #f4f6f7;
   height: 100px;
   margin-bottom: 10px;
 }
+
 .OwO {
   position: relative;
   z-index: 1;
 }
+
 .OwO .OwO-logo {
   position: relative;
   border-radius: 4px;
@@ -471,10 +437,12 @@ export default {
   z-index: 2;
   line-height: 30px;
 }
+
 .OwO .OwO-logo:hover {
   animation: a 5s infinite ease-in-out;
   -webkit-animation: a 5s infinite ease-in-out;
 }
+
 .OwO .OwO-body {
   position: absolute;
   background: #fff;
@@ -484,17 +452,21 @@ export default {
   border-radius: 0 4px 4px 4px;
   display: none;
 }
+
 .OwO-open .OwO-body {
   display: block;
 }
+
 .OwO-open .OwO-logo {
   border-radius: 4px 4px 0 0;
   border-bottom: none;
 }
+
 .OwO-open .OwO-logo:hover {
   animation: none;
   -webkit-animation: none;
 }
+
 .OwO .OwO-items {
   max-height: 197px;
   overflow: scroll;
@@ -502,6 +474,7 @@ export default {
   padding: 10px;
   z-index: 1;
 }
+
 .OwO .OwO-items .OwO-item {
   background: #f7f7f7;
   padding: 5px 10px;
@@ -513,6 +486,7 @@ export default {
   font-size: 20px;
   cursor: pointer;
 }
+
 .OwO .OwO-items .OwO-item:hover {
   background: #eee;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2),
@@ -520,6 +494,7 @@ export default {
   animation: a 5s infinite ease-in-out;
   -webkit-animation: a 5s infinite ease-in-out;
 }
+
 .OwO .OwO-body .OwO-bar {
   width: 100%;
   height: 30px;
@@ -528,6 +503,7 @@ export default {
   border-radius: 0 0 4px 4px;
   color: #444;
 }
+
 .OwO .OwO-body .OwO-bar .OwO-packages li {
   display: inline-block;
   line-height: 30px;
@@ -537,422 +513,525 @@ export default {
   margin-right: 3px;
   text-align: center;
 }
+
 .OwO .OwO-body .OwO-bar .OwO-packages li:first-of-type {
   border-radius: 0 0 0 3px;
 }
+
 @-webkit-keyframes a {
   2% {
     -webkit-transform: translateY(1.5px) rotate(1.5deg);
     transform: translateY(1.5px) rotate(1.5deg);
   }
+
   4% {
     -webkit-transform: translateY(-1.5px) rotate(-0.5deg);
     transform: translateY(-1.5px) rotate(-0.5deg);
   }
+
   6% {
     -webkit-transform: translateY(1.5px) rotate(-1.5deg);
     transform: translateY(1.5px) rotate(-1.5deg);
   }
+
   8% {
     -webkit-transform: translateY(-1.5px) rotate(-1.5deg);
     transform: translateY(-1.5px) rotate(-1.5deg);
   }
+
   10% {
     -webkit-transform: translateY(2.5px) rotate(1.5deg);
     transform: translateY(2.5px) rotate(1.5deg);
   }
+
   12% {
     -webkit-transform: translateY(-0.5px) rotate(1.5deg);
     transform: translateY(-0.5px) rotate(1.5deg);
   }
+
   14% {
     -webkit-transform: translateY(-1.5px) rotate(1.5deg);
     transform: translateY(-1.5px) rotate(1.5deg);
   }
+
   16% {
     -webkit-transform: translateY(-0.5px) rotate(-1.5deg);
     transform: translateY(-0.5px) rotate(-1.5deg);
   }
+
   18% {
     -webkit-transform: translateY(0.5px) rotate(-1.5deg);
     transform: translateY(0.5px) rotate(-1.5deg);
   }
+
   20% {
     -webkit-transform: translateY(-1.5px) rotate(2.5deg);
     transform: translateY(-1.5px) rotate(2.5deg);
   }
+
   22% {
     -webkit-transform: translateY(0.5px) rotate(-1.5deg);
     transform: translateY(0.5px) rotate(-1.5deg);
   }
+
   24% {
     -webkit-transform: translateY(1.5px) rotate(1.5deg);
     transform: translateY(1.5px) rotate(1.5deg);
   }
+
   26% {
     -webkit-transform: translateY(0.5px) rotate(0.5deg);
     transform: translateY(0.5px) rotate(0.5deg);
   }
+
   28% {
     -webkit-transform: translateY(0.5px) rotate(1.5deg);
     transform: translateY(0.5px) rotate(1.5deg);
   }
+
   30% {
     -webkit-transform: translateY(-0.5px) rotate(2.5deg);
     transform: translateY(-0.5px) rotate(2.5deg);
   }
+
   32%,
   34% {
     -webkit-transform: translateY(1.5px) rotate(-0.5deg);
     transform: translateY(1.5px) rotate(-0.5deg);
   }
+
   36% {
     -webkit-transform: translateY(-1.5px) rotate(2.5deg);
     transform: translateY(-1.5px) rotate(2.5deg);
   }
+
   38% {
     -webkit-transform: translateY(1.5px) rotate(-1.5deg);
     transform: translateY(1.5px) rotate(-1.5deg);
   }
+
   40% {
     -webkit-transform: translateY(-0.5px) rotate(2.5deg);
     transform: translateY(-0.5px) rotate(2.5deg);
   }
+
   42% {
     -webkit-transform: translateY(2.5px) rotate(-1.5deg);
     transform: translateY(2.5px) rotate(-1.5deg);
   }
+
   44% {
     -webkit-transform: translateY(1.5px) rotate(0.5deg);
     transform: translateY(1.5px) rotate(0.5deg);
   }
+
   46% {
     -webkit-transform: translateY(-1.5px) rotate(2.5deg);
     transform: translateY(-1.5px) rotate(2.5deg);
   }
+
   48% {
     -webkit-transform: translateY(-0.5px) rotate(0.5deg);
     transform: translateY(-0.5px) rotate(0.5deg);
   }
+
   50% {
     -webkit-transform: translateY(0.5px) rotate(0.5deg);
     transform: translateY(0.5px) rotate(0.5deg);
   }
+
   52% {
     -webkit-transform: translateY(2.5px) rotate(2.5deg);
     transform: translateY(2.5px) rotate(2.5deg);
   }
+
   54% {
     -webkit-transform: translateY(-1.5px) rotate(1.5deg);
     transform: translateY(-1.5px) rotate(1.5deg);
   }
+
   56% {
     -webkit-transform: translateY(2.5px) rotate(2.5deg);
     transform: translateY(2.5px) rotate(2.5deg);
   }
+
   58% {
     -webkit-transform: translateY(0.5px) rotate(2.5deg);
     transform: translateY(0.5px) rotate(2.5deg);
   }
+
   60% {
     -webkit-transform: translateY(2.5px) rotate(2.5deg);
     transform: translateY(2.5px) rotate(2.5deg);
   }
+
   62% {
     -webkit-transform: translateY(-0.5px) rotate(2.5deg);
     transform: translateY(-0.5px) rotate(2.5deg);
   }
+
   64% {
     -webkit-transform: translateY(-0.5px) rotate(1.5deg);
     transform: translateY(-0.5px) rotate(1.5deg);
   }
+
   66% {
     -webkit-transform: translateY(1.5px) rotate(-0.5deg);
     transform: translateY(1.5px) rotate(-0.5deg);
   }
+
   68% {
     -webkit-transform: translateY(-1.5px) rotate(-0.5deg);
     transform: translateY(-1.5px) rotate(-0.5deg);
   }
+
   70% {
     -webkit-transform: translateY(1.5px) rotate(0.5deg);
     transform: translateY(1.5px) rotate(0.5deg);
   }
+
   72% {
     -webkit-transform: translateY(2.5px) rotate(1.5deg);
     transform: translateY(2.5px) rotate(1.5deg);
   }
+
   74% {
     -webkit-transform: translateY(-0.5px) rotate(0.5deg);
     transform: translateY(-0.5px) rotate(0.5deg);
   }
+
   76% {
     -webkit-transform: translateY(-0.5px) rotate(2.5deg);
     transform: translateY(-0.5px) rotate(2.5deg);
   }
+
   78% {
     -webkit-transform: translateY(-0.5px) rotate(1.5deg);
     transform: translateY(-0.5px) rotate(1.5deg);
   }
+
   80% {
     -webkit-transform: translateY(1.5px) rotate(1.5deg);
     transform: translateY(1.5px) rotate(1.5deg);
   }
+
   82% {
     -webkit-transform: translateY(-0.5px) rotate(0.5deg);
     transform: translateY(-0.5px) rotate(0.5deg);
   }
+
   84% {
     -webkit-transform: translateY(1.5px) rotate(2.5deg);
     transform: translateY(1.5px) rotate(2.5deg);
   }
+
   86% {
     -webkit-transform: translateY(-1.5px) rotate(-1.5deg);
     transform: translateY(-1.5px) rotate(-1.5deg);
   }
+
   88% {
     -webkit-transform: translateY(-0.5px) rotate(2.5deg);
     transform: translateY(-0.5px) rotate(2.5deg);
   }
+
   90% {
     -webkit-transform: translateY(2.5px) rotate(-0.5deg);
     transform: translateY(2.5px) rotate(-0.5deg);
   }
+
   92% {
     -webkit-transform: translateY(0.5px) rotate(-0.5deg);
     transform: translateY(0.5px) rotate(-0.5deg);
   }
+
   94% {
     -webkit-transform: translateY(2.5px) rotate(0.5deg);
     transform: translateY(2.5px) rotate(0.5deg);
   }
+
   96% {
     -webkit-transform: translateY(-0.5px) rotate(1.5deg);
     transform: translateY(-0.5px) rotate(1.5deg);
   }
+
   98% {
     -webkit-transform: translateY(-1.5px) rotate(-0.5deg);
     transform: translateY(-1.5px) rotate(-0.5deg);
   }
+
   0%,
   to {
     -webkit-transform: translate(0) rotate(0deg);
     transform: translate(0) rotate(0deg);
   }
 }
+
 @keyframes a {
   2% {
     -webkit-transform: translateY(1.5px) rotate(1.5deg);
     transform: translateY(1.5px) rotate(1.5deg);
   }
+
   4% {
     -webkit-transform: translateY(-1.5px) rotate(-0.5deg);
     transform: translateY(-1.5px) rotate(-0.5deg);
   }
+
   6% {
     -webkit-transform: translateY(1.5px) rotate(-1.5deg);
     transform: translateY(1.5px) rotate(-1.5deg);
   }
+
   8% {
     -webkit-transform: translateY(-1.5px) rotate(-1.5deg);
     transform: translateY(-1.5px) rotate(-1.5deg);
   }
+
   10% {
     -webkit-transform: translateY(2.5px) rotate(1.5deg);
     transform: translateY(2.5px) rotate(1.5deg);
   }
+
   12% {
     -webkit-transform: translateY(-0.5px) rotate(1.5deg);
     transform: translateY(-0.5px) rotate(1.5deg);
   }
+
   14% {
     -webkit-transform: translateY(-1.5px) rotate(1.5deg);
     transform: translateY(-1.5px) rotate(1.5deg);
   }
+
   16% {
     -webkit-transform: translateY(-0.5px) rotate(-1.5deg);
     transform: translateY(-0.5px) rotate(-1.5deg);
   }
+
   18% {
     -webkit-transform: translateY(0.5px) rotate(-1.5deg);
     transform: translateY(0.5px) rotate(-1.5deg);
   }
+
   20% {
     -webkit-transform: translateY(-1.5px) rotate(2.5deg);
     transform: translateY(-1.5px) rotate(2.5deg);
   }
+
   22% {
     -webkit-transform: translateY(0.5px) rotate(-1.5deg);
     transform: translateY(0.5px) rotate(-1.5deg);
   }
+
   24% {
     -webkit-transform: translateY(1.5px) rotate(1.5deg);
     transform: translateY(1.5px) rotate(1.5deg);
   }
+
   26% {
     -webkit-transform: translateY(0.5px) rotate(0.5deg);
     transform: translateY(0.5px) rotate(0.5deg);
   }
+
   28% {
     -webkit-transform: translateY(0.5px) rotate(1.5deg);
     transform: translateY(0.5px) rotate(1.5deg);
   }
+
   30% {
     -webkit-transform: translateY(-0.5px) rotate(2.5deg);
     transform: translateY(-0.5px) rotate(2.5deg);
   }
+
   32%,
   34% {
     -webkit-transform: translateY(1.5px) rotate(-0.5deg);
     transform: translateY(1.5px) rotate(-0.5deg);
   }
+
   36% {
     -webkit-transform: translateY(-1.5px) rotate(2.5deg);
     transform: translateY(-1.5px) rotate(2.5deg);
   }
+
   38% {
     -webkit-transform: translateY(1.5px) rotate(-1.5deg);
     transform: translateY(1.5px) rotate(-1.5deg);
   }
+
   40% {
     -webkit-transform: translateY(-0.5px) rotate(2.5deg);
     transform: translateY(-0.5px) rotate(2.5deg);
   }
+
   42% {
     -webkit-transform: translateY(2.5px) rotate(-1.5deg);
     transform: translateY(2.5px) rotate(-1.5deg);
   }
+
   44% {
     -webkit-transform: translateY(1.5px) rotate(0.5deg);
     transform: translateY(1.5px) rotate(0.5deg);
   }
+
   46% {
     -webkit-transform: translateY(-1.5px) rotate(2.5deg);
     transform: translateY(-1.5px) rotate(2.5deg);
   }
+
   48% {
     -webkit-transform: translateY(-0.5px) rotate(0.5deg);
     transform: translateY(-0.5px) rotate(0.5deg);
   }
+
   50% {
     -webkit-transform: translateY(0.5px) rotate(0.5deg);
     transform: translateY(0.5px) rotate(0.5deg);
   }
+
   52% {
     -webkit-transform: translateY(2.5px) rotate(2.5deg);
     transform: translateY(2.5px) rotate(2.5deg);
   }
+
   54% {
     -webkit-transform: translateY(-1.5px) rotate(1.5deg);
     transform: translateY(-1.5px) rotate(1.5deg);
   }
+
   56% {
     -webkit-transform: translateY(2.5px) rotate(2.5deg);
     transform: translateY(2.5px) rotate(2.5deg);
   }
+
   58% {
     -webkit-transform: translateY(0.5px) rotate(2.5deg);
     transform: translateY(0.5px) rotate(2.5deg);
   }
+
   60% {
     -webkit-transform: translateY(2.5px) rotate(2.5deg);
     transform: translateY(2.5px) rotate(2.5deg);
   }
+
   62% {
     -webkit-transform: translateY(-0.5px) rotate(2.5deg);
     transform: translateY(-0.5px) rotate(2.5deg);
   }
+
   64% {
     -webkit-transform: translateY(-0.5px) rotate(1.5deg);
     transform: translateY(-0.5px) rotate(1.5deg);
   }
+
   66% {
     -webkit-transform: translateY(1.5px) rotate(-0.5deg);
     transform: translateY(1.5px) rotate(-0.5deg);
   }
+
   68% {
     -webkit-transform: translateY(-1.5px) rotate(-0.5deg);
     transform: translateY(-1.5px) rotate(-0.5deg);
   }
+
   70% {
     -webkit-transform: translateY(1.5px) rotate(0.5deg);
     transform: translateY(1.5px) rotate(0.5deg);
   }
+
   72% {
     -webkit-transform: translateY(2.5px) rotate(1.5deg);
     transform: translateY(2.5px) rotate(1.5deg);
   }
+
   74% {
     -webkit-transform: translateY(-0.5px) rotate(0.5deg);
     transform: translateY(-0.5px) rotate(0.5deg);
   }
+
   76% {
     -webkit-transform: translateY(-0.5px) rotate(2.5deg);
     transform: translateY(-0.5px) rotate(2.5deg);
   }
+
   78% {
     -webkit-transform: translateY(-0.5px) rotate(1.5deg);
     transform: translateY(-0.5px) rotate(1.5deg);
   }
+
   80% {
     -webkit-transform: translateY(1.5px) rotate(1.5deg);
     transform: translateY(1.5px) rotate(1.5deg);
   }
+
   82% {
     -webkit-transform: translateY(-0.5px) rotate(0.5deg);
     transform: translateY(-0.5px) rotate(0.5deg);
   }
+
   84% {
     -webkit-transform: translateY(1.5px) rotate(2.5deg);
     transform: translateY(1.5px) rotate(2.5deg);
   }
+
   86% {
     -webkit-transform: translateY(-1.5px) rotate(-1.5deg);
     transform: translateY(-1.5px) rotate(-1.5deg);
   }
+
   88% {
     -webkit-transform: translateY(-0.5px) rotate(2.5deg);
     transform: translateY(-0.5px) rotate(2.5deg);
   }
+
   90% {
     -webkit-transform: translateY(2.5px) rotate(-0.5deg);
     transform: translateY(2.5px) rotate(-0.5deg);
   }
+
   92% {
     -webkit-transform: translateY(0.5px) rotate(-0.5deg);
     transform: translateY(0.5px) rotate(-0.5deg);
   }
+
   94% {
     -webkit-transform: translateY(2.5px) rotate(0.5deg);
     transform: translateY(2.5px) rotate(0.5deg);
   }
+
   96% {
     -webkit-transform: translateY(-0.5px) rotate(1.5deg);
     transform: translateY(-0.5px) rotate(1.5deg);
   }
+
   98% {
     -webkit-transform: translateY(-1.5px) rotate(-0.5deg);
     transform: translateY(-1.5px) rotate(-0.5deg);
   }
+
   0%,
   to {
     -webkit-transform: translate(0) rotate(0deg);
     transform: translate(0) rotate(0deg);
   }
 }
+
 /*用户输入表单*/
 .tmsg-r-info {
   margin: 10px 0;
 }
+
 .tmsg-r-info input {
   height: 30px;
   border-radius: 4px;
   background: #f4f6f7;
 }
+
 .tmsg-r-info .info-submit {
   margin: 10px 0;
   text-align: center;
 }
+
 .tmsg-r-info .info-submit p,
 .tmsg-commentshow h1 {
   /*background: #97dffd;*/
@@ -964,6 +1043,7 @@ export default {
   line-height: 30px;
   text-align: center;
 }
+
 /*.tmsg-r-info .info-submit p:hover{
     background: #47456d;
 }*/
@@ -975,21 +1055,27 @@ export default {
   margin: 40px 0;
   font-size: 20px;
 }
+
 .tmsg-commentlist {
   margin-bottom: 20px;
 }
-.tmsg-commentshow > .tmsg-commentlist {
+
+.tmsg-commentshow>.tmsg-commentlist {
   border-bottom: 1px solid #e5eaed;
 }
+
 .tmsg-c-item {
   border-top: 1px solid #e5eaed;
 }
+
 .tmsg-c-item article {
   margin: 20px 0;
 }
+
 .tmsg-c-item article header {
   margin-bottom: 10px;
 }
+
 .tmsg-c-item article header img {
   width: 65px;
   height: 65px;
@@ -1000,10 +1086,12 @@ export default {
   margin-right: 15px;
   object-fit: cover;
 }
+
 .tmsg-c-item article header img:hover {
   transform: rotate(360deg);
   -webkit-transform: rotate(360deg);
 }
+
 .tmsg-c-item article header .i-name {
   font-size: 14px;
   margin: 5px 8px 7px 0;
@@ -1011,6 +1099,7 @@ export default {
   font-weight: bold;
   display: inline-block;
 }
+
 .tmsg-c-item article header .i-class {
   display: inline-block;
   margin-left: 10px;
@@ -1021,16 +1110,20 @@ export default {
   font-size: 12px;
   font-weight: 400;
 }
+
 .tmsg-c-item article header .i-time {
   color: #aaa;
   font-size: 12px;
 }
+
 .tmsg-c-item article section {
   margin-left: 80px;
 }
+
 .tmsg-c-item article section p img {
   vertical-align: middle;
 }
+
 .tmsg-c-item article section .tmsg-replay {
   /* 左右边距，上下边距 */
   margin: 10px 0;
@@ -1040,5 +1133,4 @@ export default {
   color: #64609e;
   /* 鼠标指针在元素上悬停时的形状。 */
   cursor: pointer;
-}
-</style>
+}</style>

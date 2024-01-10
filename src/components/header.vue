@@ -48,7 +48,8 @@
       </div>
       <div class="h-information">
 
-        <img :src="this.$store.state.themeObj.head_portrait ? this.$store.state.themeObj.head_portrait : 'static/img/tou.png'"
+        <img
+          :src="this.$store.state.themeObj.head_portrait ? this.$store.state.themeObj.head_portrait : 'static/img/tou.png'"
           alt="">
 
         <h2 class="h-description">
@@ -230,7 +231,7 @@ export default {
     }, 500);
   },
   // 搜索
-  
+
 };
 
 </script>

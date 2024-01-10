@@ -101,6 +101,15 @@
             :closable="false"
           >
           </el-alert>
+          <!-- 注册成功 -->
+          <!-- <el-alert
+            v-show="step==0"
+            title="注册成功！"
+            type="true"
+            show-icon
+            :closable="true"
+          >
+          </el-alert> -->
           <div
             class="lr-btn tcolors-bg"
             @click="newRegister"
@@ -186,6 +195,18 @@ export default {
         this.newRegister();
       }
     },
+    // 弹出注册成功
+    open() {
+        this.$alert('即将跳转到登录页面！', '注册成功', {
+          confirmButtonText: '确定',
+          callback: action => {
+            this.$message({
+              type: 'info',
+              message: `请登录`
+            });
+          }
+        });
+      },
     newRegister: function () {
       //注册提交
       var that = this;
@@ -220,7 +241,10 @@ export default {
           that.npassword
         )
           .then((response) => {
+            // 注册成功后弹出提示框
+            that.open();
             //注册成功后调整到登录
+            // this.step=0;
             that.goLogin();
           })
           .catch((error) => {
