@@ -15,7 +15,7 @@
           </a>
         </h1>
         <h2>
-          <i class="fa fa-fw fa-user"></i>发表于
+          <i class="fa fa-fw fa-user"></i>{{ item.createName }}发表于
           <i class="fa fa-fw fa-clock-o"></i><span v-html="showInitDate(item.createTime, 'all')">{{
             showInitDate(item.createTime, "all")
             }}</span>
